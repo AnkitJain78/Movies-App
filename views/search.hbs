@@ -1,0 +1,16 @@
+{{> header }}
+<div class="overflow-none flex items-center h-[75vh] ">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <img src="illustration.jpg" class="w-full h-full flex items-center" />
+    <form class="w-3/4 mx-auto flex justify-center flex-col mb-12 mt-5" action="/movies" method="post">
+    <h1 class="text-3xl font-bold text-[#333] mb-5">SEARCH AWESOME MOVIES</h1>
+    <p class="font-karla mb-4"><span class="font-bold">Movies</span> based on your search query. Also order some great
+    foods to enjoy your day. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, et. Lorem ipsum dolor sit amet.</p>
+        <div class="relative">
+        <input type="text" class="w-full px-2 py-3 outline-none border rounded-md" placeholder="Enter search query" id="query" name="movieName" autocomplete="off"/>
+        <input class="w-1/4 p-2 bg-purple-700 duration-300 hover:bg-purple-500 text-white font-bold rounded-md absolute right-1 mt-1 top-0 cursor-pointer" id="button" type="submit" value="Search" >
+        </div>
+    </form>
+</div>
+</div>
+{{> footer}}
