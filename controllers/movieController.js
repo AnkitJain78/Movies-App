@@ -12,15 +12,18 @@ module.exports.ErrorController = function (req, res) {
 };
 module.exports.MovieController = function (req, res) {
   const { movieName } = req.body;
-  MovieApi.get(`${movieName}&api_key=${Config.API_KEY}`).then((response) => {
+  const params = {
+    query: movieName,
+    api_key: process.env.API_KEY
+  };
+  MovieApi.get('/search/movie', { params }).then((response) => {
     let responseData = JSON.parse(response.data);
-    const tempData = responseData;
-    tempData.results.forEach((element) => {
+    responseData.results.forEach((element) => {
       if (element.overview.length == 0) {
         element.overview =
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nam reiciendis voluptatibus error harum distinctio temporibus, quasi voluptatem ullam ut quaerat praesentium quae!";
       }
     });
-    res.render("movie", { recipe: tempData.results, name: movieName });
+    res.render("movie", { recipe: responseData.results, name: movieName });
   });
 };
